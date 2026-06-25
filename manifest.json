@@ -1,0 +1,14 @@
+{
+  "name": "Laura-Compass 蘿拉避難羅盤",
+  "short_name": "蘿拉羅盤",
+  "description": "災難當下，一步步帶你避難的離線引導工具",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F0E8D8",
+  "theme_color": "#9A6A14",
+  "icons": [
+    { "src": "./icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

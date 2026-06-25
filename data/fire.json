@@ -1,0 +1,130 @@
+{
+  "id": "fire",
+  "title": "火災",
+  "icon": "🔥",
+  "start": "n_start",
+  "source": "內政部消防署 消防防災館「火災逃生避難原則」（更新 113-11-01）",
+  "nodes": {
+    "n_start": {
+      "headline": "保命第一，立刻準備逃生",
+      "tone": "danger",
+      "actions": [
+        "大喊「失火了」，叫醒、提醒身邊的人",
+        "撥打 119 報案",
+        "絕不為了收拾財物而逗留",
+        "絕不搭電梯（可能斷電受困）"
+      ],
+      "question": "你現在的狀況是？",
+      "options": [
+        { "label": "火還小，我能安全離開這個房間", "next": "n_escape_down" },
+        { "label": "要開門逃，但不確定門外安不安全", "next": "n_door_test" },
+        { "label": "火太大／濃煙已包圍，出不去", "next": "n_shelter" }
+      ]
+    },
+    "n_door_test": {
+      "headline": "開門前，先用手背摸門板上方",
+      "tone": "warn",
+      "actions": [
+        "用手背輕觸門板上方，測試溫度"
+      ],
+      "question": "門板燙不燙？",
+      "options": [
+        { "label": "燙手", "next": "n_shelter" },
+        { "label": "不燙", "next": "n_door_crack" }
+      ]
+    },
+    "n_door_crack": {
+      "headline": "先開一條小門縫，看門外有沒有煙",
+      "tone": "warn",
+      "actions": [
+        "只開一條小縫，觀察門外是否有煙霧"
+      ],
+      "question": "門外有沒有煙？",
+      "options": [
+        { "label": "沒有煙", "next": "n_escape_down" },
+        { "label": "有煙", "next": "n_shelter" }
+      ]
+    },
+    "n_escape_down": {
+      "headline": "往一樓、往外逃，隨手關門",
+      "tone": "go",
+      "actions": [
+        "往「下」逃——人跑不贏往上竄的煙",
+        "隨手關門，把火勢和濃煙關在身後",
+        "走有防火門的安全梯（最佳選擇）",
+        "絕不搭電梯"
+      ],
+      "question": "往下逃的路上狀況如何？",
+      "options": [
+        { "label": "順利到一樓／戶外了", "next": "n_safe_out" },
+        { "label": "樓梯間有煙竄上來", "next": "n_horizontal" }
+      ]
+    },
+    "n_horizontal": {
+      "headline": "樓梯有煙！別往上、也別硬穿過去",
+      "tone": "warn",
+      "actions": [
+        "不可往上跑（跑不贏每秒 3–5 公尺的煙）",
+        "不可嘗試穿越濃煙",
+        "改往「水平方向」找第二條逃生路線"
+      ],
+      "question": "有沒有找到另一條沒有煙的路？",
+      "options": [
+        { "label": "找到了，另一條路沒有煙", "next": "n_escape_down" },
+        { "label": "沒有其他路可走了", "next": "n_shelter" }
+      ]
+    },
+    "n_shelter": {
+      "headline": "出不去就「關門求救」，千萬別躲浴室",
+      "tone": "danger",
+      "actions": [
+        "退到離火、煙、熱最遠，且有對外窗的房間",
+        "關上可緊閉的木門（不要躲浴室／塑膠門，會熔化致命）",
+        "用衣物或毛巾把門縫塞住，擋住濃煙",
+        "撥 119，清楚說出你的詳細位置與樓層",
+        "靠近對外窗，揮舞顯眼物品向外求救"
+      ],
+      "question": "接下來？",
+      "options": [
+        { "label": "其他路都不通，且現場有緩降機", "next": "n_descender" },
+        { "label": "保持原地，等待消防員救援", "next": "n_wait" }
+      ]
+    },
+    "n_descender": {
+      "headline": "使用緩降機（口訣：掛、丟、套、束、推）",
+      "tone": "warn",
+      "actions": [
+        "掛：把緩降機掛鈎確實掛在固定架鈎環上",
+        "丟：從窗口丟下輪盤，確認下方沒有障礙物",
+        "套：把安全帶套在腋下",
+        "束：把束帶束到胸口",
+        "推：面向牆、雙手輕推牆壁，緩緩下降"
+      ],
+      "question": "",
+      "options": []
+    },
+    "n_safe_out": {
+      "headline": "已經脫困！到安全的地方集合",
+      "tone": "safe",
+      "actions": [
+        "到約定地點集合，清點人數",
+        "千萬不可再返回火場拿任何東西",
+        "主動告訴消防員：還有沒有人受困、在幾樓",
+        "確認 119 已經報案"
+      ],
+      "question": "",
+      "options": []
+    },
+    "n_wait": {
+      "headline": "保持低姿、靠窗，等消防員來",
+      "tone": "shelter",
+      "actions": [
+        "持續確認門縫密封、濃煙沒有滲入",
+        "靠近對外窗呼吸新鮮空氣、向外求救",
+        "和 119 保持聯繫，回報你的狀況與位置"
+      ],
+      "question": "",
+      "options": []
+    }
+  }
+}
