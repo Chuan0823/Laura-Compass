@@ -1,5 +1,5 @@
 // 離線快取：第一次載入後，App 與避難資料全離線可用。改檔後把 CACHE 版本號 +1。
-const CACHE = "compass-v1";
+const CACHE = "compass-v2";
 const ASSETS = [
   "./",
   "./index.html",
